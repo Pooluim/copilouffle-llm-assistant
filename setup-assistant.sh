@@ -1,24 +1,23 @@
 #!/bin/bash
+echo "🚀 Configuration Copilouffle Assistant Ollama"
 
-echo "🏰 Installation de l'Assistant Copilouffle..."
-echo "=============================================="
-
-# Vérifier si Ollama est installé
+# Vérifier Ollama
 if ! command -v ollama &> /dev/null; then
-    echo "❌ Ollama n'est pas installé. Veuillez l'installer depuis https://ollama.com"
-    exit 1
+    echo "❌ Ollama non installé. Installation..."
+    curl -fsSL https://ollama.ai/install.sh | sh
 fi
 
-echo "✅ Ollama détecté"
+# Créer les modèles Copilouffle
+echo "🏠 Création des modèles Copilouffle..."
 
-# Télécharger le modèle de base
-echo "📥 Téléchargement de Llama 3.2 3B..."
-ollama pull llama3.2:3b
+# Modèle principal code
+ollama create copilouffle-code -f Copilouffle-Modelfile-code
 
-# Créer le modèle personnalisé
-echo "🔧 Création de l'assistant Copilouffle..."
-ollama create copilouffle-llama3.2 -f Copilouffle-Modelfile
+# Modèle DevOps
+ollama create copilouffle-devops -f modelfiles/Copilouffle-Modelfile-devops
 
+echo "✅ Modèles Copilouffle créés!"
 echo ""
-echo "✅ Installation terminée avec succès !"
-echo "🎯 Testez avec : ollama run copilouffle-llama3.2 'Bonjour Copilouffle !'"
+echo "🎯 Utilisation :"
+echo "   ollama run copilouffle-code 'Aide-moi avec ce code Python'"
+echo "   ollama run copilouffle-devops 'Comment dockeriser mon app?'"
