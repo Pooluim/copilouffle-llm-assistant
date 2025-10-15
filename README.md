@@ -12,4 +12,4 @@ Déployer un assistant IA spécialisé pour aider les étudiants de Copilouffle 
 
 ### Installation en 1 commande
 ```bash
-curl -s https://raw.githubusercontent.com/votre-repo/copilouffle-llm-assistant/main/setup-assistant.sh | bash
+curl -s https://raw.githubusercontent.com/Pooluim/copilouffle-llm-assistant/main/setup-assistant.sh | bash
